@@ -224,30 +224,30 @@
       }
 
       if (minorDiagonalColumnIndexAtFirstRow >= size) {
-        // debugger;
-        // var currentRow = minorDiagonalColumnIndexAtFirstRow - 3;
-        // var currentColumn = size - 1;
-        // for (var j = currentRow; j > minorDiagonalColumnIndexAtFirstRow; j--) { //for loop is not running
-        //   // console.log('this is our current column', currentColumn, 'our minor index', minorDiagonalColumnIndexAtFirstRow);
-        //   var row = this.get(currentRow);
-        // //  row[currentColumn] > 0 ? row[currentColumn] : 0;
-        //   count += row[currentColumn];
-        //   currentRow++;
-        //   currentColumn--;
-        // }
         var currentRow = minorDiagonalColumnIndexAtFirstRow - 3;
         var currentColumn = size - 1;
-        for (var j = minorDiagonalColumnIndexAtFirstRow; j >= size; j--) {
-          debugger;
+        console.log('this is our current column', currentColumn, 'our minor index', minorDiagonalColumnIndexAtFirstRow);
+        //while (this.get(currentRow)) {
+        for (var j = currentColumn; j > minorDiagonalColumnIndexAtFirstRow - size; j--) { //for loop is not running
           var row = this.get(currentRow);
-          if (row === undefined) {
-            return;
-          } else {
-            count += row[currentColumn];
-            currentRow++;
-            currentColumn--;
-          }
+        //  row[currentColumn] > 0 ? row[currentColumn] : 0;
+          count += row[currentColumn];
+          currentRow++;
+          currentColumn--;
         }
+        // var currentRow = minorDiagonalColumnIndexAtFirstRow - 3;
+        // var currentColumn = size - 1;
+        // for (var j = minorDiagonalColumnIndexAtFirstRow; j >= size; j--) {
+        //   debugger;
+        //   var row = this.get(currentRow);
+        //   if (row === undefined) {
+        //     return;
+        //   } else {
+        //     count += row[currentColumn];
+        //     currentRow++;
+        //     currentColumn--;
+        //   }
+        // }
         return (count > 1);
       }
     },
@@ -255,9 +255,9 @@
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
-      var size = (size * 2) - 1;
+      var size = (this.get('n') + 2);
       for (var i = 0; i <= size; i++) {
-        if (this.hasMajorDiagonalConflictAt(i)) {
+        if (this.hasMinorDiagonalConflictAt(i)) {
           return true;
         }
       }
