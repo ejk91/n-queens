@@ -186,8 +186,9 @@
         var startAt = Math.abs(majorDiagonalColumnIndexAtFirstRow);
         //console.log('This is our input' ,majorDiagonalColumnIndexAtFirstRow, 'This is where we start', startAt);
         for (var j = 0; j < cols - startAt; j++) {
-          var row = this.get(startAt + i);
-          count += row[i];
+        //debugger;
+          var row = this.get(startAt + j);
+          count += row[j];
 
         }
         return (count > 1);
@@ -197,16 +198,15 @@
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
-      //get board size
-      //begin at row zero and col zero and iterate over the board
-   
-
-      //add a sum
-        //if first value is equal to one add to count
-          //move down one column and over one index
-          //add an iteration lenght that shortens by one
-
-
+      //get board size (find n)
+      // start at -n loop all the way to n
+      // call hasMajorDiagonal on n
+      var size = this.get('n');
+      for (var i = -size; i <= size; i++) {
+        if (this.hasMajorDiagonalConflictAt(i)) {
+          return true;
+        }
+      }
       return false; // fixme
     },
 
