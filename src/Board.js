@@ -226,7 +226,7 @@
       if (minorDiagonalColumnIndexAtFirstRow >= size) {
         var currentRow = minorDiagonalColumnIndexAtFirstRow - 3;
         var currentColumn = size - 1;
-        console.log('this is our current column', currentColumn, 'our minor index', minorDiagonalColumnIndexAtFirstRow);
+        // console.log('this is our current column', currentColumn, 'our minor index', minorDiagonalColumnIndexAtFirstRow);
         //while (this.get(currentRow)) {
         for (var j = currentColumn; j > minorDiagonalColumnIndexAtFirstRow - size; j--) { //for loop is not running
           var row = this.get(currentRow);
