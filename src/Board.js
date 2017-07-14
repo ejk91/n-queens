@@ -62,21 +62,7 @@
     },
 
 
-/*
-         _             _     _
-     ___| |_ __ _ _ __| |_  | |__   ___ _ __ ___ _
-    / __| __/ _` | '__| __| | '_ \ / _ \ '__/ _ (_)
-    \__ \ || (_| | |  | |_  | | | |  __/ | |  __/_
-    |___/\__\__,_|_|   \__| |_| |_|\___|_|  \___(_)
-
- */
-    /*=========================================================================
-    =                 TODO: fill in these Helper Functions                    =
-    =========================================================================*/
-
     // ROWS - run from left to right
-    // --------------------------------------------------------------
-    //
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
       //get the desired row / set up count
@@ -227,7 +213,6 @@
         var currentRow = minorDiagonalColumnIndexAtFirstRow - 3;
         var currentColumn = size - 1;
         // console.log('this is our current column', currentColumn, 'our minor index', minorDiagonalColumnIndexAtFirstRow);
-        //while (this.get(currentRow)) {
         for (var j = currentColumn; j > minorDiagonalColumnIndexAtFirstRow - size; j--) { //for loop is not running
           var row = this.get(currentRow);
         //  row[currentColumn] > 0 ? row[currentColumn] : 0;
@@ -235,19 +220,6 @@
           currentRow++;
           currentColumn--;
         }
-        // var currentRow = minorDiagonalColumnIndexAtFirstRow - 3;
-        // var currentColumn = size - 1;
-        // for (var j = minorDiagonalColumnIndexAtFirstRow; j >= size; j--) {
-        //   debugger;
-        //   var row = this.get(currentRow);
-        //   if (row === undefined) {
-        //     return;
-        //   } else {
-        //     count += row[currentColumn];
-        //     currentRow++;
-        //     currentColumn--;
-        //   }
-        // }
         return (count > 1);
       }
     },
@@ -263,8 +235,6 @@
       }
       return false; // fixme
     }
-
-    /*--------------------  End of Helper Functions  ---------------------*/
 
 
   });
