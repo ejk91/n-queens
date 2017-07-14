@@ -132,7 +132,7 @@
       }
       //  if it has conflict
         // return true
-      return false; // fixme
+      return false; 
     },
 
 
@@ -208,13 +208,13 @@
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
-      var size = (this.get('n') + 2);
-      for (var i = 0; i <= size; i++) {
+      var size = this.get('n');
+      for (var i = (size * 2) - 1; i >= 0; i--) {
         if (this.hasMinorDiagonalConflictAt(i)) {
           return true;
         }
       }
-      return false; // fixme
+      return false; 
     }
 
 
