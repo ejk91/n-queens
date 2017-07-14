@@ -190,38 +190,19 @@
     //
     // test if a specific minor diagonal on this board contains a conflict
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow ) { //2
-      // console.log('this is the starting diagonal', minorDiagonalColumnIndexAtFirstRow);
-      //find size of board
       var size = this.get('n');
-      //make counter of conflicts
       var count = 0;
+      var rowIdx = 0;
+      var colIdx = minorDiagonalColumnIndexAtFirstRow;
 
-      //if given column index is less or equal to n
-      if (minorDiagonalColumnIndexAtFirstRow < size) { // 2 < 3 true
-        //start iterating from n (add to counter)
-        var currentRow = 0;
-        for (var i = (minorDiagonalColumnIndexAtFirstRow); i >= 0; i--) {
-        //console.log('this is i:', i, 'this is the input ', minorDiagonalColumnIndexAtFirstRow);
-          var row = this.get(currentRow);
-          count += row[i]; 
-          currentRow ++;
+      for ( ; rowIdx < size && colIdx >= 0; rowIdx++, colIdx-- ) {
+        if ( colIdx < size ) {
+          var row = this.get(rowIdx);
+          count += row[colIdx];
         }
-        return (count > 1);
       }
 
-      if (minorDiagonalColumnIndexAtFirstRow >= size) {
-        var currentRow = minorDiagonalColumnIndexAtFirstRow - 3;
-        var currentColumn = size - 1;
-        // console.log('this is our current column', currentColumn, 'our minor index', minorDiagonalColumnIndexAtFirstRow);
-        for (var j = currentColumn; j > minorDiagonalColumnIndexAtFirstRow - size; j--) { //for loop is not running
-          var row = this.get(currentRow);
-        //  row[currentColumn] > 0 ? row[currentColumn] : 0;
-          count += row[currentColumn];
-          currentRow++;
-          currentColumn--;
-        }
-        return (count > 1);
-      }
+      return count > 1;
     },
         // add one row and minus one indec (add to counter);
 
